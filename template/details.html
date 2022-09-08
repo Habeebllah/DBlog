@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+			<!--
+			=====================================================
+				Feature Blog One
+			=====================================================
+			-->
+			<div class="blog-page-bg">
+				<div class="shapes shape-one"></div>
+				<div class="shapes shape-two"></div>
+				<div class="shapes shape-three"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 feature-blog-one width-lg blog-details-post-v1">
+							<div class="post-meta">
+								<img src="{{post.image.url}}" alt="" class="image-meta">
+								<div class="tag">{{post.create_at}}</div>
+								<h3 class="title">{{post.title}}</h3>
+								<p>{{post.content}}</p>
+								<div class="d-sm-flex align-items-center justify-content-between share-area">
+									<ul class="tag-feature d-flex">
+										<li>Tag: &nbsp;</li>
+										<li><a href="#">business,</a></li>
+										<li><a href="#">makreting,</a></li>
+										<li><a href="#">tips</a></li>
+									</ul>
+									<ul class="share-option d-flex align-items-center">
+										<li>Share</li>
+										<li><a href="#" style="background: #F6616F;"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+										<li><a href="#" style="background: #41CFED;"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+										<li><a href="#" style="background: #588DE7;"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									</ul>
+								</div>
+							</div> <!-- /.post-meta -->
+
+							<div class="comment-area">
+								<h3 class="title">2 Comments</h3>
+								{% for c in comments %}
+								<div class="single-comment">
+									<div class="d-flex">
+										<img src="{% static 'images/th.jpg' %}" alt="" class="user-img">
+										<div class="comment">
+											<h6 class="name">{{c.name}}</h6>
+											<div class="time">{{c.created_at}}</div>
+											<p>{{c.comment}}</p>
+										</div> <!-- /.comment -->
+									</div>
+								</div>
+								{% endfor %}
+								 
+							</div> <!-- /.comment-area -->
+
+							<div class="comment-form-section">
+								<h3 class="title">Leave A Comment</h3>
+								<div class="form-style-light">
+									<form method='post'>
+										{% csrf_token %}
+										<div class="row">
+											<div class="col-12">
+												<div class="input-group-meta mb-35">
+													<label>Name</label>
+													{{comment_form.name}}
+													<span class="placeholder_icon valid-sign"><img src="images/icon/18.svg" alt=""></span>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="input-group-meta mb-35">
+													<label>Your Email</label>
+													{{comment_form.email}}
+													<span class="placeholder_icon valid-sign"><img src="images/icon/18.svg" alt=""></span>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="input-group-meta lg mb-35">
+													<label>Your Message</label>
+													{{comment_form.comment}}
+												</div>
+											</div>
+											<div class="col-12"><button class="theme-btn-one btn-lg" type="submit">Post Comment</button></div>
+										</div>
+									</form>
+								</div> <!-- /.form-style-light -->
+							</div> <!-- /.comment-form-section -->
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="blog-sidebar-one">
+								<div class="sidebar-search-form mb-85">
+									<form action="#">
+										<input type="text" placeholder="Search">
+										<button><img src="images/icon/50.svg" alt=""></button>
+									</form>
+								</div> <!-- /.sidebar-search-form -->
+								<div class="sidebar-categories mb-85">
+									<h4 class="sidebar-title">Categories</h4>
+									<ul>
+										<li><a href="#">Web Design <span>(09)</span></a></li>
+										<li><a href="#">Graphics <span>(13)</span></a></li>
+										<li><a href="#">Web Development <span>(05)</span></a></li>
+										<li><a href="#">IOS/Android Development <span>(24)</span></a></li>
+										<li><a href="#">Others <span>(08)</span></a></li>
+									</ul>
+								</div> <!-- /.sidebar-categories -->
+								<div class="sidebar-recent-news mb-85">
+									<h4 class="sidebar-title">Recent News</h4>
+									<ul>
+										<li><a href="#">
+											<span class="title">10 days quick challange for boost visitors.</span>
+											<span class="date">23 July, 2018</span>
+										</a></li>
+										<li><a href="#">
+											<span class="title">10 days quick challange for boost visitors.</span>
+											<span class="date">23 July, 2018</span>
+										</a></li>
+										<li><a href="#">
+											<span class="title">10 days quick challange for boost visitors.</span>
+											<span class="date">23 July, 2018</span>
+										</a></li>
+									</ul>
+								</div> <!-- /.sidebar-recent-news -->
+								<div class="sidebar-keyword">
+									<h4 class="sidebar-title">Keywords</h4>
+									<ul class="cleafix">
+										<li><a href="#">Ideas</a></li>
+										<li><a href="#">Education</a></li>
+										<li><a href="#">Design</a></li>
+										<li><a href="#">Development</a></li>
+										<li><a href="#">Branding</a></li>
+									</ul>
+								</div> <!-- /.sidebar-keyword -->
+							</div> <!-- /.blog-sidebar-one -->
+						</div>
+					</div>
+				</div>
+			</div> <!-- /.feature-blog-one -->
+{% endblock content %}
+			
+
+
+
