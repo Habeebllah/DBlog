@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import BlogDetails, Home
+from app.views import BlogDetails, Home, PostCategory
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home, name="home_page"),
-    path('detail/<str:slug>', BlogDetails, name="detail_page")
+    path('detail/<str:slug>', BlogDetails, name="detail_page"),
+    path('category/<str:slug>', PostCategory, name="category_page")
 ]
 
 #Needs to be added to make images show

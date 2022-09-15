@@ -97,28 +97,21 @@
 								<div class="sidebar-categories mb-85">
 									<h4 class="sidebar-title">Categories</h4>
 									<ul>
-										<li><a href="#">Web Design <span>(09)</span></a></li>
-										<li><a href="#">Graphics <span>(13)</span></a></li>
-										<li><a href="#">Web Development <span>(05)</span></a></li>
-										<li><a href="#">IOS/Android Development <span>(24)</span></a></li>
-										<li><a href="#">Others <span>(08)</span></a></li>
+										{% for cat, c in postCategory %}
+											<li><a href="{% url 'category_page' cat.slug %}">{{cat.name}} <span>({{c}})</span></a></li>
+										{% endfor %}
 									</ul>
 								</div> <!-- /.sidebar-categories -->
 								<div class="sidebar-recent-news mb-85">
 									<h4 class="sidebar-title">Recent News</h4>
 									<ul>
-										<li><a href="#">
-											<span class="title">10 days quick challange for boost visitors.</span>
-											<span class="date">23 July, 2018</span>
+										{% for rp in recent_post %}
+										<li><a href="{% url 'detail_page' rp.slug %}">
+											<span class="title">{{rp.title}}</span>
+											<span class="date">{{rp.created_at}}</span>
 										</a></li>
-										<li><a href="#">
-											<span class="title">10 days quick challange for boost visitors.</span>
-											<span class="date">23 July, 2018</span>
-										</a></li>
-										<li><a href="#">
-											<span class="title">10 days quick challange for boost visitors.</span>
-											<span class="date">23 July, 2018</span>
-										</a></li>
+										{% endfor %}
+										
 									</ul>
 								</div> <!-- /.sidebar-recent-news -->
 								<div class="sidebar-keyword">
